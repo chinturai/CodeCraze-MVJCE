@@ -110,70 +110,135 @@ body {
     font-size: 550px;
 }
 .homepage-container {
-    margin-top: 400px;
     padding: 2rem;
     max-width: 1600px;
-    margin: 0 auto;
+    margin: 120px auto 0;
+    background: linear-gradient(to bottom, #fff, #f8f9fa);
 }
 
 .college-section {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
+    padding: 2rem;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .college-image {
     flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .college-image img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.college-image img:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.college-image:hover img {
+    transform: scale(1.05);
 }
 
 .college-info {
     flex: 1;
+    padding: 2rem;
 }
 
 .college-title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
+    font-size: 3.5rem !important;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(45deg, #ff6b00, #ff9100);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
 }
 
 .college-description {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
 }
 
 .button-container {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .action-button {
-    padding: 12px 24px;
-    font-size: 1rem;
-    background-color: orangered;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #ff6b00, #ff9100);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 0, 0.2);
+}
+
+.action-button.secondary {
+    background: white;
+    color: #ff6b00;
+    border: 2px solid #ff6b00;
 }
 
 .action-button:hover {
-    background-color: orange;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 0, 0.3);
+}
+
+.action-button.secondary:hover {
+    background: linear-gradient(45deg, #ff6b00, #ff9100);
+    color: white;
+    border-color: transparent;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .college-section {
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .college-title {
+        font-size: 2.8rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .homepage-container {
+        margin-top: 100px;
+        padding: 1rem;
+    }
+
+    .college-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .college-image {
+        flex: 0 0 100%;
+    }
+
+    .college-image img {
+        height: 300px;
+    }
+
+    .college-info {
+        padding: 1rem 0;
+    }
+
+    .button-container {
+        justify-content: center;
+    }
 }
 
 .right h1{
@@ -1057,5 +1122,59 @@ select {
 
     .product-image {
         height: 180px;
+    }
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        margin: 16px 0;
     }
 }
